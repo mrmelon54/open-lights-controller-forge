@@ -1,0 +1,17 @@
+[
+  {
+    "modid": "openlightscontroller",
+    "name": "OpenLightsController",
+    "description": "A controller to manage multiple OpenLights",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://minecraft.onpointcoding.net/mods/openlightscontroller",
+    "authorList": [
+      "MrMelon54"
+    ],
+    "credits": "",
+    "logoFile": "assets/openlightscontroller/logo.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
