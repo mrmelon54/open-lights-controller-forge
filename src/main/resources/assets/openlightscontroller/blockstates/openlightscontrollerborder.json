@@ -4,7 +4,71 @@
     "model": "openlightscontroller:openlightscontrollerborder"
   },
   "variants": {
-    "normal": [{}],
-    "inventory": [{}]
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ],
+    "axis=none,flipped=false,near_controller=false": {
+      "model": "openlightscontroller:openlightscontrollerborder"
+    },
+    "axis=none,flipped=false,near_controller=true": {
+      "model": "openlightscontroller:openlightscontrollerborder"
+    },
+    "axis=none,flipped=true,near_controller=false": {
+      "model": "openlightscontroller:openlightscontrollerborder"
+    },
+    "axis=none,flipped=true,near_controller=true": {
+      "model": "openlightscontroller:openlightscontrollerborder"
+    },
+    "axis=x,flipped=false,near_controller=true": {
+      "model": "openlightscontroller:openlightscontrollerborder-close",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,flipped=false,near_controller=false": {
+      "model": "openlightscontroller:openlightscontrollerborder-far",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,flipped=true,near_controller=true": {
+      "model": "openlightscontroller:openlightscontrollerborder-reversed",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,flipped=true,near_controller=false": {
+      "model": "openlightscontroller:openlightscontrollerborder-far",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,flipped=false,near_controller=true": {
+      "model": "openlightscontroller:openlightscontrollerborder-close"
+    },
+    "axis=y,flipped=false,near_controller=false": {
+      "model": "openlightscontroller:openlightscontrollerborder-far"
+    },
+    "axis=y,flipped=true,near_controller=true": {
+      "model": "openlightscontroller:openlightscontrollerborder-close"
+    },
+    "axis=y,flipped=true,near_controller=false": {
+      "model": "openlightscontroller:openlightscontrollerborder-far"
+    },
+    "axis=z,flipped=false,near_controller=true": {
+      "model": "openlightscontroller:openlightscontrollerborder-close",
+      "x": 90
+    },
+    "axis=z,flipped=false,near_controller=false": {
+      "model": "openlightscontroller:openlightscontrollerborder-far",
+      "x": 90
+    },
+    "axis=z,flipped=true,near_controller=true": {
+      "model": "openlightscontroller:openlightscontrollerborder-reversed",
+      "x": 90
+    },
+    "axis=z,flipped=true,near_controller=false": {
+      "model": "openlightscontroller:openlightscontrollerborder-far",
+      "x": 90
+    }
   }
 }

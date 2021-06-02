@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GCG",
+    "MPM",
+    "GRG"
+  ],
+  "key": {
+    "G": {
+      "item": "#opencomputers_diamondchip"
+    },
+    "P": {
+      "item": "openlights:prismaticpaste"
+    },
+    "M": {
+      "item": "#opencomputers_microchip_3"
+    },
+    "C": {
+      "item": "#opencomputers_controlunit"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "openlightscontroller:openlightscontroller3"
+  }
+}

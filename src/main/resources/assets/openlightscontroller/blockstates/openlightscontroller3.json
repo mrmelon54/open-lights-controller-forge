@@ -4,7 +4,11 @@
     "model": "openlightscontroller:openlightscontroller3"
   },
   "variants": {
-    "normal": [{}],
-    "inventory": [{}]
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
   }
 }

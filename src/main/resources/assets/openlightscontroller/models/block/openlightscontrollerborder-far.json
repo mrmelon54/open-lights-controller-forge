@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "openlightscontroller:blocks/openlightscontrollerborder",
+    "down": "openlightscontroller:blocks/openlightscontrollerborder-end",
+    "up": "openlightscontroller:blocks/openlightscontrollerborder-end",
+    "north": "openlightscontroller:blocks/openlightscontrollerborder-far",
+    "south": "openlightscontroller:blocks/openlightscontrollerborder-far",
+    "west": "openlightscontroller:blocks/openlightscontrollerborder-far",
+    "east": "openlightscontroller:blocks/openlightscontrollerborder-far"
+  }
+}

@@ -15,7 +15,7 @@ public class LightsControllerBlockBase extends Block implements ITileEntityProvi
         super(Material.GLASS);
         setTranslationKey("openlightscontroller" + (tier + 1));
         setHardness(.5F);
-        setLightLevel(1.0F);
+        setLightLevel(0F);
         setCreativeTab(CreativeTab.instance);
         this.tier = tier;
     }

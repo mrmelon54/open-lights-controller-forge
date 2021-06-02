@@ -1,4 +1,5 @@
-tile.openlightscontroller1.name=Open Lights Controller (4 block range)
-tile.openlightscontroller2.name=Open Lights Controller (8 block range)
-tile.openlightscontroller3.name=Open Lights Controller (16 block range)
+tile.openlightscontroller1.name=§7Open Lights Controller (4 block range)
+tile.openlightscontroller2.name=§eOpen Lights Controller (8 block range)
+tile.openlightscontroller3.name=§bOpen Lights Controller (16 block range)
+tile.openlightscontroller4.name=§dCreative Open Lights Controller (64 block range)
 tile.openlightscontrollerborder.name=Open Lights Controller Border

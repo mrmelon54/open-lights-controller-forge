@@ -4,6 +4,7 @@ import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.SimpleComponent;
+import li.cil.oc.common.Tier;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
@@ -54,9 +55,12 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
     }
 
     public void setupMaxBorderLength() {
-        if (tier == 0) MAX_BORDER_LENGTH = 4;
-        else if (tier == 1) MAX_BORDER_LENGTH = 8;
-        else if (tier == 2) MAX_BORDER_LENGTH = 16;
+        if (tier == Tier.One()) MAX_BORDER_LENGTH = 4;
+        else if (tier == Tier.Two()) MAX_BORDER_LENGTH = 8;
+        else if (tier == Tier.Three()) MAX_BORDER_LENGTH = 16;
+
+            // Creative tier is much higher
+        else if (tier == Tier.Four()) MAX_BORDER_LENGTH = 64;
     }
 
     @Override
@@ -538,6 +542,10 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
     @Callback(doc = "function():number; Get the maximum border size. This changes depending on the tier of the light controller.")
     public Object[] getMaximumBorderSize(Context context, Arguments args) {
         return new Object[]{MAX_BORDER_LENGTH};
+    }
+
+    public int getMaximumBorderSize() {
+        return MAX_BORDER_LENGTH;
     }
 
     private void fillRegionColor(int buf, int x1, int y1, int x2, int y2) {

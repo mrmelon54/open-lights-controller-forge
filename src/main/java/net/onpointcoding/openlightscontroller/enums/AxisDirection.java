@@ -1,6 +1,8 @@
 package net.onpointcoding.openlightscontroller.enums;
 
-public enum AxisDirection {
+import net.minecraft.util.IStringSerializable;
+
+public enum AxisDirection implements IStringSerializable {
     X,
     Y,
     Z,
@@ -10,5 +12,10 @@ public enum AxisDirection {
         for (AxisDirection axis : AxisDirection.values())
             if (axis.name().equals(value)) return axis;
         return AxisDirection.None;
+    }
+
+    @Override
+    public String getName() {
+        return super.name().toLowerCase();
     }
 }

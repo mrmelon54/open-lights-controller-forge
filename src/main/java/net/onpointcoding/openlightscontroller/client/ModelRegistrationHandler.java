@@ -17,6 +17,7 @@ public class ModelRegistrationHandler {
         registerModel(OpenLightsController.Items.openlightscontroller1, 0);
         registerModel(OpenLightsController.Items.openlightscontroller2, 0);
         registerModel(OpenLightsController.Items.openlightscontroller3, 0);
+        registerModel(OpenLightsController.Items.openlightscontroller4, 0);
         registerModel(OpenLightsController.Items.openlightscontrollerborder, 0);
     }
 

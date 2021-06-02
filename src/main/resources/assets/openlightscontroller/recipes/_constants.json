@@ -1,0 +1,51 @@
+[
+  {
+    "name": "opencomputers_diamondchip",
+    "ingredient": {
+      "item": "opencomputers:material",
+      "data": 29
+    }
+  },
+  {
+    "name": "opencomputers_pcb",
+    "ingredient": {
+      "item": "opencomputers:material",
+      "data": 4
+    }
+  },
+  {
+    "name": "opencomputers_controlunit",
+    "ingredient": {
+      "item": "opencomputers:material",
+      "data": 11
+    }
+  },
+  {
+    "name": "opencomputers_alu",
+    "ingredient": {
+      "item": "opencomputers:material",
+      "data": 10
+    }
+  },
+  {
+    "name": "opencomputers_microchip_1",
+    "ingredient": {
+      "item": "opencomputers:material",
+      "data": 7
+    }
+  },
+  {
+    "name": "opencomputers_microchip_2",
+    "ingredient": {
+      "item": "opencomputers:material",
+      "data": 8
+    }
+  },
+  {
+    "name": "opencomputers_microchip_3",
+    "ingredient": {
+      "item": "opencomputers:material",
+      "data": 9
+    }
+  }
+]

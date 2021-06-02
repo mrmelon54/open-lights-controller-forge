@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GCG",
+    "MPM",
+    "GRG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "P": {
+      "item": "openlights:prismaticpaste"
+    },
+    "M": {
+      "item": "#opencomputers_alu"
+    },
+    "C": {
+      "item": "#opencomputers_pcb"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "openlightscontroller:openlightscontrollerborder"
+  }
+}

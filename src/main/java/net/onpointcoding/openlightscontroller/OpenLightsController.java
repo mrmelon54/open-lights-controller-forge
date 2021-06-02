@@ -19,6 +19,7 @@ import net.onpointcoding.openlightscontroller.blocks.LightsControllerBorderBlock
 import net.onpointcoding.openlightscontroller.blocks.tiers.LightsControllerBlockTier1;
 import net.onpointcoding.openlightscontroller.blocks.tiers.LightsControllerBlockTier2;
 import net.onpointcoding.openlightscontroller.blocks.tiers.LightsControllerBlockTier3;
+import net.onpointcoding.openlightscontroller.blocks.tiers.LightsControllerBlockTier4;
 import net.onpointcoding.openlightscontroller.tileentity.LightsControllerTE;
 
 @Mod(
@@ -65,6 +66,7 @@ public class OpenLightsController {
         ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller1, 0, new ModelResourceLocation(Items.openlightscontroller1.getRegistryName(), "normal"));
         ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller2, 0, new ModelResourceLocation(Items.openlightscontroller2.getRegistryName(), "normal"));
         ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller3, 0, new ModelResourceLocation(Items.openlightscontroller3.getRegistryName(), "normal"));
+        ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller4, 0, new ModelResourceLocation(Items.openlightscontroller4.getRegistryName(), "normal"));
         ModelLoader.setCustomModelResourceLocation(Items.openlightscontrollerborder, 0, new ModelResourceLocation(Items.openlightscontrollerborder.getRegistryName(), "normal"));
     }
 
@@ -77,6 +79,7 @@ public class OpenLightsController {
         public static final LightsControllerBlockBase openlightscontroller1 = null;
         public static final LightsControllerBlockBase openlightscontroller2 = null;
         public static final LightsControllerBlockBase openlightscontroller3 = null;
+        public static final LightsControllerBlockBase openlightscontroller4 = null;
         public static final LightsControllerBorderBlockBase openlightscontrollerborder = null;
     }
 
@@ -89,6 +92,7 @@ public class OpenLightsController {
         public static final ItemBlock openlightscontroller1 = null;
         public static final ItemBlock openlightscontroller2 = null;
         public static final ItemBlock openlightscontroller3 = null;
+        public static final ItemBlock openlightscontroller4 = null;
         public static final ItemBlock openlightscontrollerborder = null;
     }
 
@@ -105,6 +109,7 @@ public class OpenLightsController {
             event.getRegistry().register(new ItemBlock(Blocks.openlightscontroller1).setRegistryName(Blocks.openlightscontroller1.getRegistryName().toString()));
             event.getRegistry().register(new ItemBlock(Blocks.openlightscontroller2).setRegistryName(Blocks.openlightscontroller2.getRegistryName().toString()));
             event.getRegistry().register(new ItemBlock(Blocks.openlightscontroller3).setRegistryName(Blocks.openlightscontroller3.getRegistryName().toString()));
+            event.getRegistry().register(new ItemBlock(Blocks.openlightscontroller4).setRegistryName(Blocks.openlightscontroller4.getRegistryName().toString()));
             event.getRegistry().register(new ItemBlock(Blocks.openlightscontrollerborder).setRegistryName(Blocks.openlightscontrollerborder.getRegistryName().toString()));
         }
 
@@ -113,7 +118,7 @@ public class OpenLightsController {
          */
         @SubscribeEvent
         public static void addBlocks(RegistryEvent.Register<Block> event) {
-            event.getRegistry().registerAll(new LightsControllerBlockTier1(), new LightsControllerBlockTier2(), new LightsControllerBlockTier3());
+            event.getRegistry().registerAll(new LightsControllerBlockTier1(), new LightsControllerBlockTier2(), new LightsControllerBlockTier3(), new LightsControllerBlockTier4());
             event.getRegistry().register(new LightsControllerBorderBlockBase());
         }
     }
