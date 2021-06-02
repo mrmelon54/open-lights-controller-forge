@@ -1,7 +1,7 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "openlightscontroller:openlightscontroller"
+    "model": "openlightscontroller:openlightscontroller2"
   },
   "variants": {
     "normal": [{}],

@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Optional;
-import net.onpointcoding.openlightscontroller.blocks.LightsControllerBorderBlock;
+import net.onpointcoding.openlightscontroller.blocks.LightsControllerBorderBlockBase;
 import net.onpointcoding.openlightscontroller.enums.AxisDirection;
 import pcl.openlights.tileentity.OpenLightTE;
 
@@ -38,12 +38,25 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
     private AxisDirection firstDirection = AxisDirection.None;
     private AxisDirection secondDirection = AxisDirection.None;
 
-    private static final int MAX_BORDER_LENGTH = 16;
+    private int MAX_BORDER_LENGTH = 0;
     private String firstSideName = "NONE";
     private String secondSideName = "NONE";
+    private int tier = 0;
 
     public LightsControllerTE() {
-        // Do nothing.
+        // Do nothing...
+    }
+
+    public LightsControllerTE(int tier) {
+        // Load starting tier
+        this.tier = tier;
+        setupMaxBorderLength();
+    }
+
+    public void setupMaxBorderLength() {
+        if (tier == 0) MAX_BORDER_LENGTH = 4;
+        else if (tier == 1) MAX_BORDER_LENGTH = 8;
+        else if (tier == 2) MAX_BORDER_LENGTH = 16;
     }
 
     @Override
@@ -85,6 +98,9 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         brightness = nbt.getIntArray("brightness-flat");
         if (color.length != width * height) valid = false;
         if (brightness.length != width * height) valid = false;
+
+        tier = nbt.getInteger("tier");
+        setupMaxBorderLength();
     }
 
     private int[] getColors() {
@@ -118,6 +134,8 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
 
         nbt.setIntArray("color-flat", getColors());
         nbt.setIntArray("brightness-flat", getBrightnesses());
+
+        nbt.setInteger("tier", tier);
 
         return nbt;
     }
@@ -187,12 +205,12 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
 
         // Get border axes directions
         World world = getWorld();
-        up = world.getBlockState(getPos().up()).getBlock() instanceof LightsControllerBorderBlock;
-        down = world.getBlockState(getPos().down()).getBlock() instanceof LightsControllerBorderBlock;
-        north = world.getBlockState(getPos().north()).getBlock() instanceof LightsControllerBorderBlock;
-        east = world.getBlockState(getPos().east()).getBlock() instanceof LightsControllerBorderBlock;
-        south = world.getBlockState(getPos().south()).getBlock() instanceof LightsControllerBorderBlock;
-        west = world.getBlockState(getPos().west()).getBlock() instanceof LightsControllerBorderBlock;
+        up = world.getBlockState(getPos().up()).getBlock() instanceof LightsControllerBorderBlockBase;
+        down = world.getBlockState(getPos().down()).getBlock() instanceof LightsControllerBorderBlockBase;
+        north = world.getBlockState(getPos().north()).getBlock() instanceof LightsControllerBorderBlockBase;
+        east = world.getBlockState(getPos().east()).getBlock() instanceof LightsControllerBorderBlockBase;
+        south = world.getBlockState(getPos().south()).getBlock() instanceof LightsControllerBorderBlockBase;
+        west = world.getBlockState(getPos().west()).getBlock() instanceof LightsControllerBorderBlockBase;
 
         if ((up && down) || (north && south) || (east && west))
             throw new Exception("Invalid light controller setup, expected two different axes for the borders");
@@ -228,7 +246,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         int i;
 
         for (i = 1; i < MAX_BORDER_LENGTH + 1; i++) {
-            if (!(getBlockOnAxis(world, direction, i) instanceof LightsControllerBorderBlock)) break;
+            if (!(getBlockOnAxis(world, direction, i) instanceof LightsControllerBorderBlockBase)) break;
         }
 
         return i - 1;
@@ -515,6 +533,11 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         }
 
         return o;
+    }
+
+    @Callback(doc = "function():number; Get the maximum border size. This changes depending on the tier of the light controller.")
+    public Object[] getMaximumBorderSize(Context context, Arguments args) {
+        return new Object[]{MAX_BORDER_LENGTH};
     }
 
     private void fillRegionColor(int buf, int x1, int y1, int x2, int y2) {

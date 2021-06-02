@@ -14,7 +14,9 @@ public class ModelRegistrationHandler {
 
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
-        registerModel(OpenLightsController.Items.openlightscontroller, 0);
+        registerModel(OpenLightsController.Items.openlightscontroller1, 0);
+        registerModel(OpenLightsController.Items.openlightscontroller2, 0);
+        registerModel(OpenLightsController.Items.openlightscontroller3, 0);
         registerModel(OpenLightsController.Items.openlightscontrollerborder, 0);
     }
 

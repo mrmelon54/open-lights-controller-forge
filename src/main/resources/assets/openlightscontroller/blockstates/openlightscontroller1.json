@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "openlightscontroller:openlightscontroller1"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}

@@ -4,10 +4,10 @@ import li.cil.oc.api.CreativeTab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-public class LightsControllerBorderBlock extends Block {
+public class LightsControllerBorderBlockBase extends Block {
     public static final String NAME = "openlightscontrollerborder";
 
-    public LightsControllerBorderBlock() {
+    public LightsControllerBorderBlockBase() {
         super(Material.IRON);
         setRegistryName(NAME);
         setTranslationKey("openlightscontrollerborder");

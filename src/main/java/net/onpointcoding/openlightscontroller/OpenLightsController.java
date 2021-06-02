@@ -14,8 +14,11 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.onpointcoding.openlightscontroller.blocks.LightsControllerBlock;
-import net.onpointcoding.openlightscontroller.blocks.LightsControllerBorderBlock;
+import net.onpointcoding.openlightscontroller.blocks.LightsControllerBlockBase;
+import net.onpointcoding.openlightscontroller.blocks.LightsControllerBorderBlockBase;
+import net.onpointcoding.openlightscontroller.blocks.tiers.LightsControllerBlockTier1;
+import net.onpointcoding.openlightscontroller.blocks.tiers.LightsControllerBlockTier2;
+import net.onpointcoding.openlightscontroller.blocks.tiers.LightsControllerBlockTier3;
 import net.onpointcoding.openlightscontroller.tileentity.LightsControllerTE;
 
 @Mod(
@@ -59,7 +62,9 @@ public class OpenLightsController {
      */
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-        ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller, 0, new ModelResourceLocation(Items.openlightscontroller.getRegistryName(), "normal"));
+        ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller1, 0, new ModelResourceLocation(Items.openlightscontroller1.getRegistryName(), "normal"));
+        ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller2, 0, new ModelResourceLocation(Items.openlightscontroller2.getRegistryName(), "normal"));
+        ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller3, 0, new ModelResourceLocation(Items.openlightscontroller3.getRegistryName(), "normal"));
         ModelLoader.setCustomModelResourceLocation(Items.openlightscontrollerborder, 0, new ModelResourceLocation(Items.openlightscontrollerborder.getRegistryName(), "normal"));
     }
 
@@ -69,8 +74,10 @@ public class OpenLightsController {
      */
     @GameRegistry.ObjectHolder(MOD_ID)
     public static class Blocks {
-        public static final LightsControllerBlock openlightscontroller = null;
-        public static final LightsControllerBorderBlock openlightscontrollerborder = null;
+        public static final LightsControllerBlockBase openlightscontroller1 = null;
+        public static final LightsControllerBlockBase openlightscontroller2 = null;
+        public static final LightsControllerBlockBase openlightscontroller3 = null;
+        public static final LightsControllerBorderBlockBase openlightscontrollerborder = null;
     }
 
     /**
@@ -79,7 +86,9 @@ public class OpenLightsController {
      */
     @GameRegistry.ObjectHolder(MOD_ID)
     public static class Items {
-        public static final ItemBlock openlightscontroller = null;
+        public static final ItemBlock openlightscontroller1 = null;
+        public static final ItemBlock openlightscontroller2 = null;
+        public static final ItemBlock openlightscontroller3 = null;
         public static final ItemBlock openlightscontrollerborder = null;
     }
 
@@ -93,7 +102,9 @@ public class OpenLightsController {
          */
         @SubscribeEvent
         public static void addItems(RegistryEvent.Register<Item> event) {
-            event.getRegistry().register(new ItemBlock(Blocks.openlightscontroller).setRegistryName(Blocks.openlightscontroller.getRegistryName().toString()));
+            event.getRegistry().register(new ItemBlock(Blocks.openlightscontroller1).setRegistryName(Blocks.openlightscontroller1.getRegistryName().toString()));
+            event.getRegistry().register(new ItemBlock(Blocks.openlightscontroller2).setRegistryName(Blocks.openlightscontroller2.getRegistryName().toString()));
+            event.getRegistry().register(new ItemBlock(Blocks.openlightscontroller3).setRegistryName(Blocks.openlightscontroller3.getRegistryName().toString()));
             event.getRegistry().register(new ItemBlock(Blocks.openlightscontrollerborder).setRegistryName(Blocks.openlightscontrollerborder.getRegistryName().toString()));
         }
 
@@ -102,8 +113,8 @@ public class OpenLightsController {
          */
         @SubscribeEvent
         public static void addBlocks(RegistryEvent.Register<Block> event) {
-            event.getRegistry().register(new LightsControllerBlock());
-            event.getRegistry().register(new LightsControllerBorderBlock());
+            event.getRegistry().registerAll(new LightsControllerBlockTier1(), new LightsControllerBlockTier2(), new LightsControllerBlockTier3());
+            event.getRegistry().register(new LightsControllerBorderBlockBase());
         }
     }
 }

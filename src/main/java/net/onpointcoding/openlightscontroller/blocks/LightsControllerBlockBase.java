@@ -8,20 +8,20 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.onpointcoding.openlightscontroller.tileentity.LightsControllerTE;
 
-public class LightsControllerBlock extends Block implements ITileEntityProvider {
-    public static final String NAME = "openlightscontroller";
+public class LightsControllerBlockBase extends Block implements ITileEntityProvider {
+    private final int tier;
 
-    public LightsControllerBlock() {
+    public LightsControllerBlockBase(int tier) {
         super(Material.GLASS);
-        setRegistryName(NAME);
-        setTranslationKey("openlightscontroller");
+        setTranslationKey("openlightscontroller" + (tier + 1));
         setHardness(.5F);
         setLightLevel(1.0F);
         setCreativeTab(CreativeTab.instance);
+        this.tier = tier;
     }
 
     @Override
     public TileEntity createNewTileEntity(World arg0, int arg1) {
-        return new LightsControllerTE();
+        return new LightsControllerTE(tier);
     }
 }
