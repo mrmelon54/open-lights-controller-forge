@@ -144,7 +144,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return nbt;
     }
 
-    @Callback(doc = "function():string; Applies the current cached lighting data to the lights.")
+    @Callback(doc = "function apply():string; Applies the current cached lighting data to the lights.")
     public Object[] apply(Context context, Arguments args) throws Exception {
         if (!valid)
             throw new Exception("Invalid light controller setup, fix the issue then run `calibrate()`.");
@@ -178,12 +178,12 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return new Object[]{"OK"};
     }
 
-    @Callback(doc = "function():bool; Checks if the light controller is calibrated.")
+    @Callback(doc = "function isCalibrated():bool; Checks if the light controller is calibrated.")
     public Object[] isCalibrated(Context context, Arguments args) {
         return new Object[]{valid};
     }
 
-    @Callback(doc = "function(direction:string):string; Calibrate light controller.")
+    @Callback(doc = "function calibrate(direction:string):string; Calibrate light controller.")
     public Object[] calibrate(Context context, Arguments args) throws Exception {
         valid = false;
 
@@ -275,7 +275,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return position;
     }
 
-    @Callback(doc = "function():string, string; Get border axes.")
+    @Callback(doc = "function getBorderAxes():string, string; Get border axes.")
     public Object[] getBorderAxes(Context context, Arguments args) throws Exception {
         if (!valid)
             throw new Exception("Invalid light controller setup, fix the issue then run `calibrate()`.");
@@ -283,7 +283,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return new Object[]{firstDirection.toString(), secondDirection.toString()};
     }
 
-    @Callback(doc = "function():string, string; Get active border directions.")
+    @Callback(doc = "function getBorderDirections():string, string; Get active border directions.")
     public Object[] getBorderDirections(Context context, Arguments args) throws Exception {
         if (!valid)
             throw new Exception("Invalid light controller setup, fix the issue then run `calibrate()`.");
@@ -291,7 +291,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return new Object[]{firstSideName, secondSideName};
     }
 
-    @Callback(doc = "function():int, int; Get size of light grid.")
+    @Callback(doc = "function getSize():number, number; Get size of light grid. ")
     public Object[] getSize(Context context, Arguments args) throws Exception {
         if (!valid)
             throw new Exception("Invalid light controller setup, fix the issue then run `calibrate()`.");
@@ -299,7 +299,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return new Object[]{width, height};
     }
 
-    @Callback(doc = "function(color:number, {x:number, y:number}):string; Set the light color as an RGB value. Returns the new color as an RGB hex string. Use `tonumber(value, 16)' to convert return value to a usable numeric value. The controller caches this until `apply()` is called.")
+    @Callback(doc = "function setColor(color:number, {x:number, y:number}):string; Set the light color as an RGB value. Returns the new color as an RGB hex string. Use `tonumber(value, 16)` to convert return value to a usable numeric value. The controller caches this until `apply()` is called.")
     public Object[] setColor(Context context, Arguments args) throws Exception {
         // Must be an odd number of arguments but can't be fewer than 3
         if (args.count() < 3 || args.count() % 2 == 0)
@@ -326,7 +326,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return new Object[]{getColorString(buf)};
     }
 
-    @Callback(doc = "function(color:number, [x1:number, y1:number, x2:number, y2:number]):string; Fills a specific region or the whole grid to a specific RGB value. Returns the new color as an RGB hex string. Use `tonumber(value, 16)` to convert return value to a usable numeric value. The controller caches this until `apply()` is called.")
+    @Callback(doc = "function fillColor(color:number, [x1:number, y1:number, x2:number, y2:number]):string; Fills a specific region or the whole grid to a specific RGB value. Returns the new color as an RGB hex string. Use `tonumber(value, 16)` to convert return value to a usable numeric value. The controller caches this until `apply()` is called.")
     public Object[] fillColor(Context context, Arguments args) throws Exception {
         // Must be 1 or 5 arguments
         if (args.count() != 1 && args.count() != 5)
@@ -359,7 +359,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return new Object[]{buf};
     }
 
-    @Callback(doc = "function(brightness:number, {x:number, y:number}):number; Set the brightness of the light. Returns the new brightness. The controller caches this until `apply()` is called.")
+    @Callback(doc = "function setBrightness(brightness:number, {x:number, y:number}):number; Set the brightness of the light. Returns the new brightness. The controller caches this until `apply()` is called.")
     public Object[] setBrightness(Context context, Arguments args) throws Exception {
         // Must be an odd number of arguments but can't be fewer than 3
         if (args.count() < 3 || args.count() % 2 == 0)
@@ -386,7 +386,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return new Object[]{buf};
     }
 
-    @Callback(doc = "function(brightness:number, [x1:number, y1:number, x2:number, y2:number]):number; Fills a specific region or the whole grid to a specific brightness. Returns the new brightness. The controller caches this until `apply()` is called.")
+    @Callback(doc = "function fillBrightness(brightness:number, [x1:number, y1:number, x2:number, y2:number]):number; Fills a specific region or the whole grid to a specific brightness. Returns the new brightness. The controller caches this until `apply()` is called.")
     public Object[] fillBrightness(Context context, Arguments args) throws Exception {
         // Must be 1 or 5 arguments
         if (args.count() != 1 && args.count() != 5)
@@ -419,7 +419,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return new Object[]{buf};
     }
 
-    @Callback(doc = "function({x:number, y:number}):string; Get the light color as an RGB hex string. Use `tonumber(value, 16)' to convert return value to a usable numeric value. The controller returns the current color use `getCachedColor()` to get the currently cached color.")
+    @Callback(doc = "function getColor({x:number, y:number}):{string}; Get the light color as an RGB hex string. Use `tonumber(value, 16)` to convert return value to a usable numeric value. The controller returns the current color use `getCachedColor()` to get the currently cached color.")
     public Object[] getColor(Context context, Arguments args) throws Exception {
         // This can't have an odd number of arguments or less than 2 arguments
         if (args.count() % 2 == 1 || args.count() < 2)
@@ -455,7 +455,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return o;
     }
 
-    @Callback(doc = "function({x:number, y:number}):number; Get the brightness of the light. The controller returns the current brightness use `getCachedBrightness()` to get the currently cached brightness.")
+    @Callback(doc = "function getBrightness({x:number, y:number}):{number}; Get brightness of the light. The controller returns the current brightness use `getCachedBrightness()` to get the currently cached brightness.")
     public Object[] getBrightness(Context context, Arguments args) throws Exception {
         // This can't have an odd number of arguments or less than 2 arguments
         if (args.count() % 2 == 1 || args.count() < 2)
@@ -491,7 +491,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return o;
     }
 
-    @Callback(doc = "function({x:number, y:number}):{string}; Get the cached light color as an RGB hex string. Use `tonumber(value, 16)' to convert return value to a usable numeric value. Use `getColor()` to get the current color of the light.")
+    @Callback(doc = "function getCachedColor({x:number, y:number}):{string}; Get the light color as an RGB hex string. Use `tonumber(value, 16)` to convert return value to a usable numeric value. Use `getColor()` to get the current color of the light.")
     public Object[] getCachedColor(Context context, Arguments args) throws Exception {
         // This can't have an odd number of arguments or less than 2 arguments
         if (args.count() % 2 == 1 || args.count() < 2)
@@ -515,7 +515,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return o;
     }
 
-    @Callback(doc = "function({x:number, y:number}):{number}; Get the brightness of the light. Use `getBrightness()` to get the current brightness of the light.")
+    @Callback(doc = "function getCachedBrightness({x:number, y:number}):{number}; Get brightness of the light. Use `getBrightness()` to get the current brightness of the light.")
     public Object[] getCachedBrightness(Context context, Arguments args) throws Exception {
         // This can't have an odd number of arguments or less than 2 arguments
         if (args.count() % 2 == 1 || args.count() < 2)
@@ -539,7 +539,7 @@ public class LightsControllerTE extends TileEntity implements SimpleComponent {
         return o;
     }
 
-    @Callback(doc = "function():number; Get the maximum border size. This changes depending on the tier of the light controller.")
+    @Callback(doc = "function getMaximumBorderSize():number; Get the maximum border size. This changes depending on the tier of the light controller.")
     public Object[] getMaximumBorderSize(Context context, Arguments args) {
         return new Object[]{MAX_BORDER_LENGTH};
     }
