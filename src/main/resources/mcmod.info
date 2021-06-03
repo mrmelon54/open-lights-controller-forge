@@ -12,6 +12,9 @@
     "credits": "",
     "logoFile": "assets/openlightscontroller/logo.png",
     "screenshots": [],
-    "dependencies": []
+    "dependencies": [
+      "opencomputers",
+      "openlights"
+    ]
   }
 ]
