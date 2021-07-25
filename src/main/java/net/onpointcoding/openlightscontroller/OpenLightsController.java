@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 import net.onpointcoding.openlightscontroller.blocks.LightsControllerBlockBase;
 import net.onpointcoding.openlightscontroller.blocks.LightsControllerBorderBlockBase;
 import net.onpointcoding.openlightscontroller.blocks.tiers.LightsControllerBlockTier1;
@@ -33,7 +34,7 @@ public class OpenLightsController {
 
     public static final String MOD_ID = "openlightscontroller";
     public static final String MOD_NAME = "OpenLightsController";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.0.1";
 
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
@@ -63,11 +64,13 @@ public class OpenLightsController {
      */
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-        ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller1, 0, new ModelResourceLocation(Items.openlightscontroller1.getRegistryName(), "normal"));
-        ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller2, 0, new ModelResourceLocation(Items.openlightscontroller2.getRegistryName(), "normal"));
-        ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller3, 0, new ModelResourceLocation(Items.openlightscontroller3.getRegistryName(), "normal"));
-        ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller4, 0, new ModelResourceLocation(Items.openlightscontroller4.getRegistryName(), "normal"));
-        ModelLoader.setCustomModelResourceLocation(Items.openlightscontrollerborder, 0, new ModelResourceLocation(Items.openlightscontrollerborder.getRegistryName(), "normal"));
+        if (event.getSide() == Side.CLIENT) {
+            ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller1, 0, new ModelResourceLocation(Items.openlightscontroller1.getRegistryName(), "normal"));
+            ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller2, 0, new ModelResourceLocation(Items.openlightscontroller2.getRegistryName(), "normal"));
+            ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller3, 0, new ModelResourceLocation(Items.openlightscontroller3.getRegistryName(), "normal"));
+            ModelLoader.setCustomModelResourceLocation(Items.openlightscontroller4, 0, new ModelResourceLocation(Items.openlightscontroller4.getRegistryName(), "normal"));
+            ModelLoader.setCustomModelResourceLocation(Items.openlightscontrollerborder, 0, new ModelResourceLocation(Items.openlightscontrollerborder.getRegistryName(), "normal"));
+        }
     }
 
     /**

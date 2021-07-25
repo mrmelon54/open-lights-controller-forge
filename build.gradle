@@ -24,7 +24,7 @@ repositories {
 }
 
 group = 'net.onpointcoding'
-version = '1.0.0'
+version = '1.0.1'
 archivesBaseName = 'OpenLightsController'
 
 minecraft {
