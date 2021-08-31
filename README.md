@@ -1,5 +1,7 @@
 # Open Lights Controller
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W1607S8)
+
 Requires [Open Computers](https://www.curseforge.com/minecraft/mc-mods/opencomputers) and [Open Lights](https://www.curseforge.com/minecraft/mc-mods/openlights)
 
 ## Setup
