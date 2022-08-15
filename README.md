@@ -87,3 +87,4 @@ lc.apply()
 ## Download
 
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/open-lights-controller)
+- [Modrinth](https://modrinth.com/mod/open-lights-controller)
