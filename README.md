@@ -18,7 +18,7 @@ Requires [Open Computers](https://www.curseforge.com/minecraft/mc-mods/opencompu
 ## Usage
 
 <p align="center">
-  <img src="./images/2021-06-03_17.20.25.png" alt="Block layout" width="738">
+  <img src="https://raw.githubusercontent.com/MrMelon54/open-lights-controller-forge/master/images/screen setup.png" alt="Block layout" width="738">
 </p>
 
 ```lua
