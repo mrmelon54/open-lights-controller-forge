@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         maven {
             name = "forge"
             url = "https://files.minecraftforge.net/maven"
@@ -9,10 +9,6 @@ buildscript {
     dependencies {
         classpath "net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT"
     }
-}
-
-plugins {
-    id 'org.ajoberstar.grgit' version '4.1.0'
 }
 
 apply plugin: "net.minecraftforge.gradle.forge"
@@ -49,7 +45,7 @@ repositories {
 }
 
 dependencies {
-    compile "li.cil.oc:OpenComputers:MC1.12.2-1.7.+"
+    compile "li.cil.oc:OpenComputers:MC1.12.2-1.7.5.221"
     compile "pcl.openlights:OpenLights-MC1.12.2:0.1.0"
 }
 
@@ -78,18 +74,6 @@ def getVersionMetadata() {
     // CI builds only
     if (build_id != null) {
         return "build.${build_id}"
-    }
-
-    if (grgit != null) {
-        def head = grgit.head()
-        def id = head.abbreviatedId
-
-        // Flag the build if the build tree is not clean
-        if (!grgit.status().clean) {
-            id += "-dirty"
-        }
-
-        return "rev.${id}"
     }
 
     // No tracking information could be found about the build
